@@ -32,6 +32,12 @@ main {
   padding: 1rem;
 }
 
+a {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none; 
+}
+
 /* img {
     width: 400px;
     height: auto;
@@ -43,6 +49,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .slider-images {
@@ -56,6 +63,18 @@ main {
     height: 100%;
     object-fit: cover;
     border-radius: 6px;
+}
+
+.slider-img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark gradient (adjust opacity as needed) */
+    border-radius: 6px;
+    z-index: 1; /* Ensure it sits above the image but below other content */
 }
 
 .slider-img{
@@ -87,7 +106,7 @@ main {
     font-weight:700;
     text-align: left;
     text-transform: uppercase;
-    color: #122F36;
+    color: #fff;
     position:absolute;
     top: 50%;
     left: -10%;
@@ -96,33 +115,56 @@ main {
     /* text-overflow: ellipsis; */
     /* white-space: nowrap; */
     /* overflow: hidden; */
-
+z-index: 2;
 }
 
 .details {
     position: absolute;
     bottom: 43px;
     left: 43px;
+    z-index: 2;
+}
+
+.details h3 {
+    font-size: 26px;
+    font-weight:700;
+    text-align: left;
+    line-height: 44px;
+    color: #fff;
+    text-transform: uppercase;
+    transition: 0.7s ease;
+    /* padding: 12px 18px; */
+    display: none;
+    text-decoration: none;
+    
 }
 
 .details a {
-    font-size: 12px;
+    font-size: 20px;
     font-weight:700;
     text-align: left;
-    line-height: 16px;
-    color: #122F36;
+    line-height: 33px;
+    color: #fff;
     text-transform: uppercase;
     transition: 0.7s ease;
-    padding: 6px 12px;
+    /* padding: 12px 18px; */
+    display: none;
+    text-decoration: none;
+    
 }
 
 .slider-img.active {
-    width: 766px;
-    height: 750px;
+    width: 766px !important;
+    height: 750px !important;
 }
 
 .slider-img.active .imgH1 {
     display: none;
+}
+
+
+.slider-img.active .details a, .slider-img.active .details h3 {
+    display: block;
 }
 
 form div {
@@ -155,3 +197,98 @@ button {
   cursor: pointer;
   border-radius: 4px;
 }
+
+@media (max-width: 1025px) {
+
+    .slider-container {
+        overflow: hidden; /* Hide any overflow */
+    }
+    
+    .slider-img {
+        height: 75px; /* Set a height to fit better in vertical layout */
+        width: auto; /* Allow width to adjust */
+        
+    }
+    
+    .slider-img.active {
+        width: 900px;
+        height: auto; /* Increase height of the active image */
+    }
+    
+    .slider-images {
+      flex-direction: column; /* Switch to vertical layout */
+      overflow-y: auto; /* Hide any overflow */
+      overflow-x: hidden; /* Hide any overflow */
+      height: auto; /* Ensure it fills the viewport height */
+      max-height: 100vh;
+      width: 100%;
+    }
+    .imgH1 {
+        display: none;
+      font-size: 16px;
+      left: 0; /* Adjusted for vertical layout */
+      top: -50%;
+      transform: rotate(0deg); /* No rotation for vertical layout */
+    }
+  
+    .details {
+      bottom: 10px;
+      left: 10px;
+    }
+  
+    .details h3 {
+      font-size: 18px;
+    }
+  
+    .details a {
+      font-size: 16px;
+    }
+
+    .slider-images .slider-img:first-child, .slider-images .slider-img:last-child {
+        width: 50vw;
+    }
+    
+    .slider-images .slider-img:nth-child(2),  .slider-images .slider-img:nth-child(5) {
+        width: 55vw;
+    }
+    .slider-images .slider-img:nth-child(3) {
+        width: 60vw;
+    
+    }
+    .slider-images .slider-img:nth-child(4) {
+        width: 70vw;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .slider-images {
+      flex-direction: column; /* Vertical layout */
+    }
+  
+    .slider-img {
+      width: 90vw;
+      height: 75px; /* Adjust height for mobile */
+    }
+  
+    .slider-img.active {
+      width: 400px;
+      height: auto; /* Adjust active image height for mobile */
+    }
+  
+    .imgH1 {
+      font-size: 14px;
+    }
+  
+    .details {
+      bottom: 5px;
+      left: 5px;
+    }
+  
+    .details h3 {
+      font-size: 16px;
+    }
+  
+    .details a {
+      font-size: 14px;
+    }
+  }
