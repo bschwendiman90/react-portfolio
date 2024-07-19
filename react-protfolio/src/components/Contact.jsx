@@ -11,7 +11,7 @@ const Contact = () => {
         email: '',
         message: ''
     });
-    const [errors, setErros] = useState({});
+    const [errors, setErrors] = useState({});
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -21,22 +21,6 @@ const Contact = () => {
         });
     }
 
-
-const handleBlur = (e) => {
-    const {name, value} = e.target;
-    if (!value) {
-        setErrors({
-            ...errors,
-            [name]: '${name} is required'
-        });
-    } else {
-        setErrors({
-            ...errors,
-            [name]: ''
-        });
-    }
-};
-
 const validateEmail = (email) => {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
@@ -44,14 +28,29 @@ const validateEmail = (email) => {
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validateEmail(formData.email)) {
-        setErrors({
-            ...errors,
-            email: 'Please enter a valid email'
-        });
-    } else {
-        console.log('Form submitted', formData);
+    const { name, email, message } = formData;
+
+    if (!name) {
+        window.alert('Name is required');
+        return;
     }
+
+    if (!email) {
+        window.alert('Email is required');
+        return;
+    }
+
+    if (!validateEmail(email)) {
+        window.alert('Please enter a valid email');
+        return;
+    }
+
+    if (!message) {
+        window.alert('Message is required');
+        return;
+    }
+
+    console.log('Form submitted', formData);
 };
 
 return (
@@ -61,20 +60,21 @@ return (
         <h2>Contact Me</h2>
         <div className="contact-wrapper">
             <div className="contact-form">
+        <h3>Send us a message</h3>
         <form onSubmit={handleSubmit}>
             <div className='form-group'>
                 <label>Name</label>
-                <input type='text' name='name' value={formData.name} onChange={handleChange} onBlur={handleBlur} />
+                <input type='text' name='name' value={formData.name} onChange={handleChange}  />
                 {errors.name && <span>{errors.name}</span>}
             </div>
             <div className='form-group'>
                 <label>Email</label>
-                <input type='text' name='email' value={formData.email} onChange={handleChange} onBlur={handleBlur} />
+                <input type='text' name='email' value={formData.email} onChange={handleChange}  />
                 {errors.email && <span>{errors.email}</span>}
             </div>
             <div className='form-group'>
                 <label>Message</label>
-                <textarea name='message' value={formData.message} onChange={handleChange} onBlur={handleBlur} />
+                <textarea name='message' value={formData.message} onChange={handleChange}  />
                 {errors.message && <span>{errors.message}</span>}
             </div>
             <button type='submit'>Send Message</button>
@@ -86,10 +86,10 @@ return (
                     Contact Information
                 </h3>
                 <p>
-                <FontAwesomeIcon icon={faPhone} /> +1 (801) 851-0792
+                <FontAwesomeIcon icon={faPhone} className='contact-icon' /> +1 (801) 851-0792
                 </p>
                 <p>
-                <FontAwesomeIcon icon={faEnvelope} /> bschwendiman90@gmail.com
+                <FontAwesomeIcon icon={faEnvelope} className='contact-icon' /> bschwendiman90@gmail.com
                 </p>
             </div>
         </div>
