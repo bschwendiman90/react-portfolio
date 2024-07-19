@@ -10,6 +10,7 @@ const projects = [
     ];
 
     const Portfolio = () => {
+        return (
         <section>
             <h2>Portfolio</h2>
             <div className='projects'>
@@ -25,6 +26,7 @@ const projects = [
             </div>
 
         </section>
+        )
     };
 
     export default Portfolio;

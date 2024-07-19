@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
-    <header>
+    return(<header>
         <h1>
             Ben Schwendiman
         </h1>
@@ -12,7 +12,7 @@ const Header = () => {
             <NavLink to="/contact" activeClassName="active">Contact</NavLink>
             <a href='../assets/resume.pdf' download>Resume</a>
         </nav>
-    </header>
+    </header>)
 };
 
     export default Header;
