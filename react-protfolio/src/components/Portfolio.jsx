@@ -16,6 +16,7 @@ const Portfolio = () => {
     };
 
   return (
+    
     <section className="slider-container">
       <div className="slider-images">
       <div
@@ -128,10 +129,4 @@ const Portfolio = () => {
 
 export default Portfolio;
 
-{/* <Script>
-    jQuery(document).ready(function ($) {
-        $('.slider-mg').on('click' function(){
-            $('.slider-img').removeClass('active');
-            $(this).addClass('active');
-        })
-</Script> */}
+
