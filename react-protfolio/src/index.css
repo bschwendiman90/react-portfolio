@@ -51,7 +51,7 @@ a {
 }
 
 .container {
-  width: 100%;
+  width: 80%;
   display: block;
   margin: auto;
 }
@@ -63,11 +63,11 @@ a {
 
 .image-section {
   float: right;
-  width: 40%;
+  width: 30%;
 }
 .image-section img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 600px;
 }
 
 .content-section .title {
