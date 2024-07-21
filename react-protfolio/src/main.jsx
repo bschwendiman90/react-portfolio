@@ -7,6 +7,7 @@ import App from './App.jsx';
 import AboutMe from './components/AboutMe';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
+import Resume from './components/Resume';
 
 import './index.css';
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path: 'contact',
                 element: <Contact />
+            },
+            {
+                path: 'resume',
+                element: <Resume />
             },
         ],
     },

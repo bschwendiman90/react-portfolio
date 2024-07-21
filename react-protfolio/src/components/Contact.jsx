@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 
@@ -12,6 +12,7 @@ const Contact = () => {
         message: ''
     });
     const [errors, setErrors] = useState({});
+    const [notification, setNotification] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -53,11 +54,18 @@ const Contact = () => {
         e.preventDefault();
         const { name, email, message } = formData;
 
-        // Only handle form submission logic here
+        
         if (name && email && validateEmail(email) && message) {
             console.log('Form submitted', formData);
+            setFormData({
+                name: '',
+                email: '',
+                message: ''
+            });
+            setNotification('Message sent successfully!');
+            setTimeout(() => setNotification(''), 3000);
         } else {
-            // Optional: Handle form submission failure if needed
+            
             console.log('Form validation failed');
         }
     };
@@ -86,6 +94,7 @@ return (
                 <textarea name='message' value={formData.message} onChange={handleChange} onBlur={handleBlur}  />
                 {errors.message && <span>{errors.message}</span>}
             </div>
+            {notification && <div className='notification'>{notification}</div>}
             <button type='submit'>Send Message</button>
         </form>
 

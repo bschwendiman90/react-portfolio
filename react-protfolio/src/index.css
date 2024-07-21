@@ -251,6 +251,43 @@ a {
 
 }
 
+.resume-section {
+    padding: 20px;
+    color: #333;
+    background-color: #ddd; /* Change to the color that matches your theme */
+    font-family: Arial, sans-serif;
+  }
+  
+  .resume-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #123524; /* Change to match your theme */
+    text-decoration: none;
+  }
+  
+  .resume-link:hover {
+    text-decoration: underline;
+  }
+  
+  .resume-text {
+    font-weight: bold;
+  }
+  
+  .proficiencies h3 {
+    margin-top: 20px;
+    color: #333; /* Change to match your theme */
+  }
+  
+  .proficiencies ul {
+    list-style-type: circle;
+    padding: 0 20px;
+  }
+  
+  .proficiencies li {
+    margin: 5px 0;
+  }
+
 input, textarea {
     width: 100%;
     padding: 12px;

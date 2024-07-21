@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
@@ -24,7 +24,12 @@ const Header = () => {
                 >
                     Contact
                 </NavLink>
-                <a href='../assets/resume.pdf' download>Resume</a>
+                <NavLink 
+                    to="/resume" 
+                    className={({ isActive }) => isActive ? "active" : ""}
+                >
+                    Resume
+                </NavLink>
             </nav>
         </header>
     );

@@ -9,7 +9,7 @@ import nationalParkExplorerImage from "../assets/images/national-park-explorer.p
 
 const Portfolio = () => {
 
-    const [activeIndex, setActiveIndex] = useState(3); // Initial active image index
+    const [activeIndex, setActiveIndex] = useState(3);
 
     const handleImageClick = (index) => {
       setActiveIndex(index);
