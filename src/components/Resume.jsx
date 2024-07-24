@@ -22,7 +22,7 @@ const Resume = () => {
       <section className="resume-section">
         <h2>Resume</h2>
         <a
-          href="../../public/Resume.pdf" // Replace with the actual path to your resume
+          href="/Resume.pdf"
           download = "resume.pdf"
           className="resume-link"
         >
